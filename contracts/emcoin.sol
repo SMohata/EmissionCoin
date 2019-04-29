@@ -1,8 +1,10 @@
 pragma solidity ^0.5.2;
 import "github.com/OpenZeppelin/zeppelin-solidity/contracts/math/SafeMath.sol";
+import "https://github.com/SMohata/EmissionCoin/node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
+import "https://github.com/SMohata/EmissionCoin/node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
 
-contract emcoin {
+contract emcoin is ERC721Token, Ownable {
     using SafeMath for uint;
     string  public name = "EmissionCoin";
     string  public symbol = "EMC";
@@ -93,6 +95,8 @@ contract emcoin {
     function getmybalance()public view returns(uint) {
         return balanceOf[msg.sender];
     }
+
+
 
 
 
