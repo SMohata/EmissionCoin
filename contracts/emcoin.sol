@@ -1,103 +1,108 @@
-pragma solidity ^0.5.2;
-import "github.com/OpenZeppelin/zeppelin-solidity/contracts/math/SafeMath.sol";
-import "https://github.com/SMohata/EmissionCoin/node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
-import "https://github.com/SMohata/EmissionCoin/node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol";
+pragma solidity ^0.4.24;
 
+import "https://github.com/SMohata/EmissionCoin/node_modules/zeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
+import "https://github.com/SMohata/EmissionCoin/node_modules/zeppelin-solidity/contracts/ownership/Ownable.sol";
 
 contract emcoin is ERC721Token, Ownable {
-    using SafeMath for uint;
-    string  public name = "EmissionCoin";
-    string  public symbol = "EMC";
-    string  public standard = "erc20";
-    uint256 public decimalPlaces = 4;
-    address _owner;
-    uint public oid=0;
+  using SafeMath for uint256;
+  address _owner;
+  string public constant name = "EmissionCoin";
+  string public constant symbol = "EMC";
 
+  constructor() ERC721Token(name,symbol) public payable{
 
-    constructor() public{
-        _owner = msg.sender;
-    }
+    _owner = msg.sender;
 
-    struct employee {
-        uint e_id;
-        string name;
-        string dept;
-        address e_add;
-        uint obid;
-        bool completed;
-        uint objectives_completed;
-    }
+  }
 
-    struct objective {
-        uint o_id;
-        string description;
-    }
+  struct employee {
+      uint e_id;
+      string name;
+      string dept;
+      address e_add;
+      uint ob_id;
+      bool completed;
+      uint objectives_completed;
+  }
 
-    uint[] obj_arr;
+  struct objective {
+      uint o_id;
+      string description;
+  }
 
-    mapping (address => uint) public balanceOf;
-    mapping (uint => objective) objectivemapping;
-    mapping (uint => employee) employeemapping;
-    mapping (address => uint) employeeaddmapping;
+  uint public oid=0;
+  uint[] obj_arr;
+  uint[] employee_arr;
 
-    function get_next_id() public {
-        oid+=1;
-    }
+  mapping (address => uint) public tokenbalance;
+  mapping (uint => employee) public employeemapping;
+  mapping (address => employee) public employeeaddmapping;
+  mapping (uint => objective) public objectivemapping;
 
-    function add_employee(uint eid, string memory ename,string memory edept) public {
-        employeemapping[eid]=employee(eid,ename,edept,msg.sender,0,false,0);
-        employeeaddmapping[msg.sender]=eid;
-        balanceOf[msg.sender]=0;
-    }
+  function register_employee(uint eid,string memory _name,string memory _dept) public {
+    employeemapping[eid]=employee(eid,_name,_dept,msg.sender,0,false,0);
+    employeeaddmapping[msg.sender]=employee(eid,_name,_dept,msg.sender,0,false,0);
+    employee_arr.push(eid);
+  }
 
-    function add_objective(string memory des) public {
-        require(msg.sender==_owner);
-        get_next_id();
-        objectivemapping[oid]=objective(oid,des);
-        obj_arr.push(oid);
-    }
+  function get_next_id() public {
+    oid+=1;
+  }
 
-    function get_rand_no() internal view returns(uint) {
-        uint len= obj_arr.length;
-        uint randomnumber = uint(keccak256(abi.encodePacked(now, msg.sender))) % len;
-        return randomnumber;
-    }
+  function add_objective(string memory _des) public {
+    get_next_id();
+    objectivemapping[oid]=objective(oid,_des);
+    obj_arr.push(oid);
+  }
 
+  function display_no_of_obj() public view returns(uint) {
+    return obj_arr.length;
+  }
 
-    function assign_objective() public {
-        uint eid_ = employeeaddmapping[msg.sender];
-        uint randno= get_rand_no();
-        employeemapping[eid_].obid=randno;
-        employeemapping[eid_].completed=false;
-    }
+  function display_obj_info(uint obid) public view returns(string memory) {
+      return objectivemapping[obid].description;
+  }
 
-    function completeobjective() public {
-        uint eid_ = employeeaddmapping[msg.sender];
-        employeemapping[eid_].completed=true;
-        balanceOf[msg.sender]+=100;
-        employeemapping[eid_].objectives_completed+=1;
-    }
+  function display_point_balance(uint id) public view returns(uint) {
+      address _eadd = employeemapping[id].e_add;
+      return tokenbalance[_eadd];
+  }
 
-    function display_me() public view returns(uint eid,string memory ename,string memory edept, uint objectiveid,bool status,uint noofobjectivescompleted) {
-        uint eid_ = employeeaddmapping[msg.sender];
-        eid = eid_;
-        ename = employeemapping[eid_].name;
-        edept = employeemapping[eid_].dept;
-        objectiveid = employeemapping[eid_].obid;
-        status = employeemapping[eid_].completed;
-        noofobjectivescompleted = employeemapping[eid_].objectives_completed;
-    }
+  function select_objective(uint id) public {
+     employeeaddmapping[msg.sender].ob_id=id;
+     uint e_id= employeeaddmapping[msg.sender].e_id;
+     employeemapping[e_id].ob_id=id;
+  }
 
-    function display_objectivearr() public view returns(uint[] memory obarr) {
-        obarr= obj_arr;
-    }
+  function completeobjective() public {
+    employeeaddmapping[msg.sender].completed=true;
+    employeeaddmapping[msg.sender].objectives_completed+=1;
+    uint eid = employeeaddmapping[msg.sender].e_id;
+    employeemapping[eid].completed=true;
+    employeemapping[eid].objectives_completed+=1;
+    uint obid = employeeaddmapping[msg.sender].ob_id;
+    createToken(objectivemapping[obid].description);
+  }
 
-    function getmybalance()public view returns(uint) {
-        return balanceOf[msg.sender];
-    }
+  function display_me() public view returns(uint eid,string memory ename,string memory edept, uint objectiveid,bool status,uint noofobjectivescompleted) {
+    uint eid_ = employeeaddmapping[msg.sender].e_id;
+    eid = eid_;
+    ename = employeemapping[eid_].name;
+    edept = employeemapping[eid_].dept;
+    objectiveid = employeemapping[eid_].ob_id;
+    status = employeemapping[eid_].completed;
+    noofobjectivescompleted = employeemapping[eid_].objectives_completed;
+  }
 
+  function createToken(string _tokenURI) public {
+      uint256 newTokenId = _getNextTokenId();
+      _mint(msg.sender,newTokenId);
+      _setTokenURI(newTokenId,_tokenURI);
+  }
 
-
+  function _getNextTokenId() private view returns(uint256){
+    return totalSupply().add(1);
+  }
 
 
 }
