@@ -1,6 +1,7 @@
 pragma solidity ^0.5.2;
 import "github.com/OpenZeppelin/zeppelin-solidity/contracts/math/SafeMath.sol";
 
+
 contract emcoin {
     using SafeMath for uint;
     string  public name = "EmissionCoin";
@@ -93,5 +94,6 @@ contract emcoin {
         return balanceOf[msg.sender];
     }
 
-}
 
+
+}
