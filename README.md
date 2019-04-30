@@ -13,3 +13,30 @@
 The website can be found under the website folder and the HTML file is "service.html". Some of the screenshots can be found below:
 
 ## Technical Stack:
+
+
+## Possible interactive and fun objective list: 
+### Objective List 
+<li>
+Ride-sharing using company transportation 
+Switching to use of bikes instead of cars to reduce emission 
+Replace lights in department floor and office space to Longtime LED/CFL bulbs 
+Implement usage of solar panels/ solar energy 
+Decrease in use of flights and other transportations for national, farther than local meetings and use skype/slack/zoom etc. video conferencing. 
+Implement thermostat rules for temperature regulations 
+Decrease the use of paper and plastic and more recyclable utensils/refrigerators/kitchen space
+ Turn off desktops and high energy usage systems in the workspace 
+Light sensors to maintain a smaller energy bill 
+Maximize natural light possibly 
+Use more efficient supplies for cleaning and other purposes
+Implement a bevi (water cooling system)
+Decrease usage of plug-in ports 
+Implement greenery in your   
+Implement organic snacks/food instead of harmful ones 
+Be efficient in the recycling system 
+Install wind turbines 
+Install timed water taps and advance your washrooms 
+Use of EV cars/ implementing new air filters 
+Install green roofs/ balconies/ green room with floor 
+</li>
+
