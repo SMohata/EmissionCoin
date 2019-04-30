@@ -1,2 +1,2 @@
 # Emissioncoin
-<img src="https://github.com/SMohata/EmissionCoin/blob/master/logo.jpeg">
+<img src="https://github.com/SMohata/EmissionCoin/blob/master/logo.jpg">
