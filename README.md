@@ -18,7 +18,7 @@ The website can be found under the website folder and the HTML file is "service.
 <img src="img3.jpeg">
 
 ## Technical Stack:
-<img src="techarchitecture.png">
+<img src="tech architecture.png">
 <p>We offer a comprehensive dashboard tracks employee/department reduction of emissions for its company. Some features include a graph displaying that person's/department’s carbon footprint changes, a wallet that displays the quantity of ERC721 tokens and the rewards associated with each of those tokens, and a leaderboard that displays which departments/employees are winning the competition in a given competition period. We also offer a blockchain and AI  based technical system that tracks changes in carbon footprint determined by an impact factor associated with each green objective. Additionally, we have an immutable ledger that tracks all objectives completed with our company. This information can be used to determine eligibility for green standard certifications, subsidies, and can be used to calculate aggregate changes in emissions per company.  </p>
 
 ## Possible interactive and fun objective list: 
