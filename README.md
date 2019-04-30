@@ -10,6 +10,8 @@
 ## User Review:
 <p> A company profile who we could work with in the beginning would be a company who is ready to implement green initiatives and already has been trying but it hasn’t been efficient in the workplace. Especially smaller, growing departments and then eventually we take on giants in the various industries in order to maximize revenue and increase eco-friendliness and sustainability. </p>
 
+
+## Prototype:
 The website can be found under the website folder and the HTML file is "service.html". Some of the screenshots can be found below:
 
 ## Technical Stack:
@@ -18,25 +20,25 @@ The website can be found under the website folder and the HTML file is "service.
 ## Possible interactive and fun objective list: 
 ### Objective List 
 <li>
-Ride-sharing using company transportation 
-Switching to use of bikes instead of cars to reduce emission 
-Replace lights in department floor and office space to Longtime LED/CFL bulbs 
-Implement usage of solar panels/ solar energy 
-Decrease in use of flights and other transportations for national, farther than local meetings and use skype/slack/zoom etc. video conferencing. 
-Implement thermostat rules for temperature regulations 
-Decrease the use of paper and plastic and more recyclable utensils/refrigerators/kitchen space
- Turn off desktops and high energy usage systems in the workspace 
-Light sensors to maintain a smaller energy bill 
-Maximize natural light possibly 
-Use more efficient supplies for cleaning and other purposes
-Implement a bevi (water cooling system)
-Decrease usage of plug-in ports 
-Implement greenery in your   
-Implement organic snacks/food instead of harmful ones 
-Be efficient in the recycling system 
-Install wind turbines 
-Install timed water taps and advance your washrooms 
-Use of EV cars/ implementing new air filters 
-Install green roofs/ balconies/ green room with floor 
-</li>
+Ride-sharing using company transportation </li>
+<li>Switching to use of bikes instead of cars to reduce emission</li>
+<li>Replace lights in department floor and office space to Longtime LED/CFL bulbs </li>
+<li>Implement usage of solar panels/ solar energy </li>
+<li>Decrease in use of flights and other transportations for national, farther than local meetings and use skype/slack/zoom etc. video conferencing. </li>
+<li>Implement thermostat rules for temperature regulations </li>
+<li>Decrease the use of paper and plastic and more recyclable utensils/refrigerators/kitchen space</li>
+ <li>Turn off desktops and high energy usage systems in the workspace </li>
+<li>Light sensors to maintain a smaller energy bill </li>
+<li>Maximize natural light possibly </li>
+<li>Use more efficient supplies for cleaning and other purposes</li>
+<li>Implement a bevi (water cooling system)</li>
+<li>Decrease usage of plug-in ports </li>
+<li>Implement greenery in your workspace </li>
+<li>Implement organic snacks/food instead of harmful ones </li>
+<li>Be efficient in the recycling system </li>
+<li>Install wind turbines </li>
+<li>Install timed water taps and advance your washrooms </li>
+<li>Use of EV cars/ implementing new air filters </li>
+<li>Install green roofs/ balconies/ green room with floor </li>
+
 
