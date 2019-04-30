@@ -10,6 +10,8 @@
 ## User Review:
 <p> A company profile who we could work with in the beginning would be a company who is ready to implement green initiatives and already has been trying but it hasn’t been efficient in the workplace. Especially smaller, growing departments and then eventually we take on giants in the various industries in order to maximize revenue and increase eco-friendliness and sustainability. </p>
 
+## Contract Deployment:
+<p> The contract has been deployed in the Rinkeby Ethereum Test Network at the address: 0x4330c3eb578926a392f79c0d63dd8ce0dcfdcbe2
 
 ## Prototype:
 The website can be found under the website folder and the HTML file is "service.html". Some of the screenshots can be found below:
